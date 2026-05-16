@@ -168,7 +168,29 @@ const TIPS = [
   {emoji:'🛣️', txt:'Carril d’acceleració: adapta’t a la velocitat'},
   {emoji:'🚘', txt:'Cotxe nou? Coneix els controls abans de sortir'}
 ]; 
+ currentTip = 0;
+  mostrarTip();
+}
 
+function mostrarTip() {
+  if (tipsData.length === 0) return;
+  const tip = tipsData[currentTip];
+  document.getElementById('tip-content').innerHTML = `
+    <div class="tip-emoji">${tip.emoji}</div>
+    <div class="tip-text">${tip.text}</div>
+  `;
+  document.getElementById('tip-counter').textContent = `${currentTip + 1} / ${tipsData.length}`;
+}
+
+function nextTip() {
+  currentTip = (currentTip + 1) % tipsData.length;
+  mostrarTip();
+}
+
+function prevTip() {
+  currentTip = (currentTip - 1 + tipsData.length) % tipsData.length;
+  mostrarTip();
+}
 let estat = {
   coins: parseInt(localStorage.getItem('gd_coins')) || 0,
   cotxes: JSON.parse(localStorage.getItem('gd_cotxes')) || ['c1'],
