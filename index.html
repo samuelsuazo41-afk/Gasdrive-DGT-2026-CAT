@@ -52,16 +52,7 @@ body {
  0% { left: -100%; }
  100% { left: 100%; }
 }
-}
-.tab-btn {
-  flex: 1;
-  padding: 12px;
-  background: none;
-  border: none;
-  color: #888;
-  font-size: 12px;
-  cursor: pointer;
-}
+
 .btn, .btn-secondary {
   background: 
     linear-gradient(135deg, #1A1A1A 0%, #0D0D0D 100%),
@@ -69,7 +60,7 @@ body {
       45deg,
       transparent,
       transparent 8px,
-      rgba(255,255,255,0.02) 8px,
+      rgba(255,255,0.02) 8px,
       rgba(255,255,255,0.02) 9px
     );
   color: #E0E0E0;
@@ -122,7 +113,36 @@ body {
 .btn:active, .btn-secondary:active {
   transform: translateY(0px);
 }
+
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.tabs {
+  display: flex;
+  background: #1a1a1a;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #333;
+  z-index: 1000;
 }
+
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.tab-btn.active {
+  color: #C0C0C0;
+  background: rgba(192, 192, 192, 0.1);
+}
+
 .sub-content { display: none; }
 .sub-content.active { display: block; }
 .card {
@@ -189,21 +209,6 @@ body {
  75% { transform: translateX(4px); }
 }
 
-.btn {
-  width: 100%;
-  padding: 15px;
-  background: linear-gradient(135deg, #C0C0C0, #2C2C2C);
-  border: none;
-  border-radius: 8px;
-  color: #000;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 15px;
-  box-shadow: 0 3px 10px rgba(192, 192, 192, 0.4);
-}
-.btn:hover { box-shadow: 0 5px 15px rgba(192, 192, 192, 0.6); }
-.btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .feedback {
   text-align: center;
   font-size: 18px;
