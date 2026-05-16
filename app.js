@@ -83,117 +83,32 @@ const EMOJI_BOTIGA = [
   {id:'e6',emoji:'⚡',nom:'Llamp',preu:700}
 ];
 
-let tipsData = [];
-let currentTip = 0;
-
 const TIPS = [
   {emoji:'🚗', txt:'Regla dels 2 segons: manté distància amb el cotxe del davant'},
   {emoji:'👀', txt:'Mira 12 segons endavant, no només el cotxe de davant'},
   {emoji:'🌧️', txt:'Pluja: augmenta distància x2 i redueix velocitat'},
   {emoji:'🌙', txt:'De nit redueix velocitat un 10-15%'},
   {emoji:'🚙', txt:'Avança només quan vegis 200m lliures'},
-  
   {emoji:'🛑', txt:'STOP vol dir aturada total, no frenada'},
   {emoji:'⚠️', txt:'Cediu el pas als vianants al pas de zebra'},
   {emoji:'💡', txt:'Fes servir els intermitents 3 segons abans de girar'},
   {emoji:'🛣️', txt:'Velocitat màxima en autovia: 120 km/h'},
   {emoji:'🏙️', txt:'Velocitat màxima en ciutat: 50 km/h'},
-  
   {emoji:'🚸', txt:'Al voltant d’escoles baixa a 30 km/h'},
   {emoji:'🍺', txt:'Alcohol i conducció no són compatibles. 0,0 és segur'},
   {emoji:'😴', txt:'Si tens son, para i descansa. 15 min canvien tot'},
   {emoji:'📱', txt:'No facis servir el mòbil mentre condueixes'},
   {emoji:'🪞', txt:'Regula els miralls abans de sortir'},
-  
   {emoji:'🎒', txt:'Posa el cinturó encara que siguin 2 min'},
   {emoji:'👶', txt:'Nens <135cm han d’anar amb SRI adequat'},
   {emoji:'🐶', txt:'Animals ben subjectes al cotxe'},
   {emoji:'🧳', txt:'Càrrega ben repartida i lligada'},
-  {emoji:'🚲', txt:'Deixa 1,5m al avançar ciclistes'},
-  
-  {emoji:'❄️', txt:'Amb gel: arrenca en 2a marxa i suau amb l’accelerador'},
-  {emoji:'🌫️', txt:'Boira: llums curtes + antiboira davant'},
-  {emoji:'🌪️', txt:'Vent fort: agafa el volant amb fermesa'},
-  {emoji:'⛽', txt:'No apuris la reserva, pots quedar-te tirat'},
-  {emoji:'🔧', txt:'Revisa oli, aigua i pressió cada mes'},
-  
-  {emoji:'🚨', txt:'Si veus una ambulància, facilita el pas'},
-  {emoji:'🔄', txt:'A les rotondes, el que hi és dins té preferència'},
-  {emoji:'↩️', txt:'Canvi de sentit prohibit on no hi hagi visibilitat'},
-  {emoji:'🚫', txt:'No estacionis a guals ni passos de vianants'},
-  {emoji:'🅿️', txt:'Estaciona en pendent amb marxa posada i fre de mà'},
-  
-  {emoji:'💨', txt:'Adelanta ràpid i torna al carril dret'},
-  {emoji:'🚚', txt:'Camions necessiten més espai per frenar'},
-  {emoji:'🚌', txt:'Autobusos sortint de parada tenen prioritat'},
-  {emoji:'🚦', txt:'Ambre no és accelerar, és preparar-te per parar'},
-  {emoji:'🚶', txt:'Vianants distrets? Redueix i toca clàxon suau'},
-  
-  {emoji:'🛠️', txt:'Si s’encén un pilot, consulta el manual'},
-  {emoji:'🧊', txt:'Parabrisas net millora la visió un 40%'},
-  {emoji:'🌡️', txt:'Amb calor, hidrata’t. La fatiga mata'},
-  {emoji:'🎵', txt:'Música molt alta et distreu. Volum moderat'},
-  {emoji:'🧤', txt:'Mans al volant a les 9 i 3, no a dalt'},
-  
-  {emoji:'🔁', txt:'Canvia de carril només si és segur'},
-  {emoji:'⏱️', txt:'Millor arribar 5 min tard que no arribar'},
-  {emoji:'🚧', txt:'Obres: respecta senyals provisionals'},
-  {emoji:'🛣️', txt:'En autopista, mantén el carril dret si vas lent'},
-  {emoji:'🚜', txt:'Vehicles lents: paciència i adelanta segur'},
-  
-  {emoji:'🔦', txt:'Si et quedis avariat, posa triangles i armilla'},
-  {emoji:'📞', txt:'112 per emergències. Guarda’l al mòbil'},
-  {emoji:'🧯', txt:'Un extintor al cotxe mai sobra'},
-  {emoji:'🧊', txt:'No aboquis aigua calenta al parabrisas gelat'},
-  {emoji:'🚗', txt:'Revisa frens si sents sorolls rars'},
-  
-  {emoji:'👟', txt:'Sabates còmodes per conduir. No xancletes'},
-  {emoji:'🧢', txt:'Sol? Ulleres de sol eviten enlluernaments'},
-  {emoji:'🌤️', txt:'Sol baix: para atenció a l’enlluernament'},
-  {emoji:'🚪', txt:'Obre la porta amb la mà dreta per mirar enrere'},
-  {emoji:'🛣️', txt:'Carril bus només per bus, taxi i bici'},
-  
-  {emoji:'🚫', txt:'No facis marxa enrere a autopista'},
-  {emoji:'🔃', txt:'Canvia oli cada 15.000-20.000 km'},
-  {emoji:'🛞', txt:'Pressió de pneumàtics: mira’l en fred'},
-  {emoji:'🧽', txt:'Parabrisas brut cansa la vista'},
-  {emoji:'🚗', txt:'Mantén 2m amb motos en ciutat'},
-  
-  {emoji:'🛑', txt:'Prioritat a la dreta si no hi ha senyal'},
-  {emoji:'🚥', txt:'Semàfor intermitent ambre = precaució'},
-  {emoji:'🚶‍♂️', txt:'Zebra sense semàfor: para sempre'},
-  {emoji:'🐾', txt:'Animals salvatges: frena, no esquivis bruscament'},
-  {emoji:'🌉', txt:'Ponts i túnels: vigila el vent i la visibilitat'},
-  
-  {emoji:'🚗', txt:'Si plou fort, para en zona segura'},
-  {emoji:'🧠', txt:'Conducció defensiva salva vides'},
-  {emoji:'⏳', txt:'No tinguis pressa. La DGT no perdona'},
-  {emoji:'🛣️', txt:'Carril d’acceleració: adapta’t a la velocitat'},
-  {emoji:'🚘', txt:'Cotxe nou? Coneix els controls abans de sortir'}
-]; 
- currentTip = 0;
-  mostrarTip();
-}
+  {emoji:'🚲', txt:'Deixa 1,5m al avançar ciclistes'}
+];
 
-function mostrarTip() {
-  if (tipsData.length === 0) return;
-  const tip = tipsData[currentTip];
-  document.getElementById('tip-content').innerHTML = `
-    <div class="tip-emoji">${tip.emoji}</div>
-    <div class="tip-text">${tip.text}</div>
-  `;
-  document.getElementById('tip-counter').textContent = `${currentTip + 1} / ${tipsData.length}`;
-}
+let tipsData = [];
+let currentTip = 0;
 
-function nextTip() {
-  currentTip = (currentTip + 1) % tipsData.length;
-  mostrarTip();
-}
-
-function prevTip() {
-  currentTip = (currentTip - 1 + tipsData.length) % tipsData.length;
-  mostrarTip();
-}
 let estat = {
   coins: parseInt(localStorage.getItem('gd_coins')) || 0,
   cotxes: JSON.parse(localStorage.getItem('gd_cotxes')) || ['c1'],
@@ -225,13 +140,14 @@ if (document.readyState === 'loading') {
 }
 
 function init() {
-  console.log("GasDrive V8.0 CAT carregat");
+  console.log("GasDrive V8.1 CAT carregat");
   actualitzarCoins();
   carregarPregunta('general');
   carregarPregunta('senyals');
   carregarPregunta('normes');
   carregarPregunta('mecanica');
   carregarSituacio('clima');
+  actualitzarMissatgeMotivacional();
 }
 
 function guardar() {
@@ -393,11 +309,11 @@ function seguentSituacio(cat) {
 
 function iniciarExamen() {
   const totes = [
-...PREGUNTES.general,
-...PREGUNTES.senyals,
-...PREGUNTES.normes,
-...PREGUNTES.mecanica,
-...SITUACIONS.clima
+   ...PREGUNTES.general,
+   ...PREGUNTES.senyals,
+   ...PREGUNTES.normes,
+   ...PREGUNTES.mecanica,
+   ...SITUACIONS.clima
   ];
   if(totes.length < 30) {
     alert('Falten preguntes. Necessites 30 mínim.');
@@ -448,11 +364,8 @@ function carregarPreguntaExamen() {
 function respondreExamen(idx, el) {
   if(el.classList.contains('bloquejada')) return;
   const p = estat.examen.preguntes[estat.examen.index];
-  
-  document.querySelectorAll('#examen-opciones .opcio').forEach(o => o.classList.add('bloquejada'));
-  
+  document.querySelectorAll('#examen-opciones.opcio').forEach(o => o.classList.add('bloquejada'));
   const correcte = idx === p.ok;
-  
   if(correcte) {
     el.classList.add('correcta');
     estat.examen.encerts++;
@@ -460,10 +373,9 @@ function respondreExamen(idx, el) {
     mostrarEmoji(true, el);
   } else {
     el.classList.add('incorrecta');
-    document.querySelectorAll('#examen-opciones .opcio')[p.ok].classList.add('correcta');
+    document.querySelectorAll('#examen-opciones.opcio')[p.ok].classList.add('correcta');
     mostrarEmoji(false, el);
   }
-
   document.getElementById('btn-sig-examen').disabled = false;
   document.getElementById('examen-aciertos').textContent = estat.examen.encerts;
   actualitzarCoins();
@@ -482,13 +394,10 @@ function seguentPreguntaExamen() {
 function finalitzarExamen() {
   clearInterval(estat.examen.timer);
   estat.examen.activa = false;
-  
   const nota = estat.examen.encerts;
   const aprovat = nota >= 27;
-  
   const res = document.getElementById('examen-resultat');
   res.style.display = 'block';
-  
   if(aprovat) {
     res.innerHTML = `
       <h2 style="color:#2ecc71">✅ APROVAT!</h2>
@@ -505,7 +414,6 @@ function finalitzarExamen() {
       <button class="btn" onclick="reiniciarExamen()">Tornar a provar</button>
     `;
   }
-  
   actualitzarCoins();
   guardar();
 }
@@ -525,24 +433,21 @@ function reiniciarExamen() {
 function carregarGaratge() {
   const cont = document.getElementById('garage-lista');
   cont.innerHTML = '';
-  
   let hpTotal = 90;
   estat.accessoris.forEach(id => {
     const acc = ACCESSORIS.find(a => a.id === id);
     if(acc) hpTotal += acc.hp;
   });
-  
   document.getElementById('garage-score').textContent = `🏎️ ${hpTotal} CV`;
-  
   COTXES.forEach(cotxe => {
     const desbloquejat = estat.cotxes.includes(cotxe.id);
     const div = document.createElement('div');
-    div.className = 'garage-car' + (desbloquejat ? '' : ' locked');
+    div.className = 'garage-car' + (desbloquejat? '' : ' locked');
     div.innerHTML = `
       <div style="font-size:40px">${cotxe.emoji}</div>
       <div>${cotxe.nom}</div>
-      <div style="color:#667eea">${cotxe.hp} CV</div>
-      ${!desbloquejat ? `<button class="btn-buy" onclick="comprarCotxe('${cotxe.id}')">Comprar ${cotxe.preu}💰</button>` : '<div style="color:#2ecc71">✓ Propietari</div>'}
+      <div style="color:#667eea">${cotxe.cv} CV</div>
+      ${!desbloquejat? `<button class="btn-buy" onclick="comprarCotxe('${cotxe.id}')">Comprar ${cotxe.preu}💰</button>` : '<div style="color:#2ecc71">✓ Propietari</div>'}
     `;
     cont.appendChild(div);
   });
@@ -565,29 +470,27 @@ function comprarCotxe(id) {
 function carregarBotiga() {
   const cont = document.getElementById('emoji-tienda');
   cont.innerHTML = '';
-  
   ACCESSORIS.forEach(acc => {
     const comprat = estat.accessoris.includes(acc.id);
     const div = document.createElement('div');
-    div.className = 'emoji-item' + (comprat ? ' locked' : '');
+    div.className = 'emoji-item' + (comprat? ' locked' : '');
     div.innerHTML = `
       <div style="font-size:40px">${acc.emoji}</div>
       <div>${acc.nom}</div>
       <div style="color:#667eea">+${acc.hp} CV</div>
-      ${!comprat ? `<button class="btn-buy" onclick="comprarAccessoris('${acc.id}')">Comprar ${acc.preu}💰</button>` : '<div style="color:#2ecc71">✓ Comprat</div>'}
+      ${!comprat? `<button class="btn-buy" onclick="comprarAccessoris('${acc.id}')">Comprar ${acc.preu}💰</button>` : '<div style="color:#2ecc71">✓ Comprat</div>'}
     `;
     cont.appendChild(div);
   });
-  
   EMOJI_BOTIGA.forEach(emoji => {
     const comprat = estat.emojis.includes(emoji.id);
     const div = document.createElement('div');
-    div.className = 'emoji-item' + (comprat ? ' locked' : '');
+    div.className = 'emoji-item' + (comprat? ' locked' : '');
     div.innerHTML = `
       <div style="font-size:40px">${emoji.emoji}</div>
       <div>${emoji.nom}</div>
       <div style="color:#667eea">Cosmètic</div>
-      ${!comprat ? `<button class="btn-buy" onclick="comprarEmoji('${emoji.id}')">Comprar ${emoji.preu}💰</button>` : '<div style="color:#2ecc71">✓ Comprat</div>'}
+      ${!comprat? `<button class="btn-buy" onclick="comprarEmoji('${emoji.id}')">Comprar ${emoji.preu}💰</button>` : '<div style="color:#2ecc71">✓ Comprat</div>'}
     `;
     cont.appendChild(div);
   });
@@ -622,14 +525,29 @@ function comprarEmoji(id) {
 }
 
 function carregarTips() {
-  const cont = document.getElementById('tips-lista');
-  cont.innerHTML = '';
-  TIPS.forEach(tip => {
-    const div = document.createElement('div');
-    div.className = 'card';
-    div.innerHTML = `<div style="font-size:24px">${tip.emoji}</div><p>${tip.txt}</p>`;
-    cont.appendChild(div);
-  });
+  tipsData = TIPS;
+  currentTip = 0;
+  mostrarTip();
+}
+
+function mostrarTip() {
+  if (tipsData.length === 0) return;
+  const tip = tipsData[currentTip];
+  document.getElementById('tip-content').innerHTML = `
+    <div class="tip-emoji">${tip.emoji}</div>
+    <div class="tip-text">${tip.txt}</div>
+  `;
+  document.getElementById('tip-counter').textContent = `${currentTip + 1} / ${tipsData.length}`;
+}
+
+function nextTip() {
+  currentTip = (currentTip + 1) % tipsData.length;
+  mostrarTip();
+}
+
+function prevTip() {
+  currentTip = (currentTip - 1 + tipsData.length) % tipsData.length;
+  mostrarTip();
 }
 
 function actualitzarMissatgeMotivacional() {
@@ -648,8 +566,8 @@ function actualitzarMissatgeMotivacional() {
 // SERVICE WORKER REGISTRE
 if('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/Gasdrive-DGT-2026-CAT/service-worker.js')
-      .then(reg => console.log('SW registrat'))
-      .catch(err => console.log('SW error:', err));
+    navigator.serviceWorker.register('./service-worker.js')
+     .then(reg => console.log('SW registrat'))
+     .catch(err => console.log('SW error:', err));
   });
-    }
+}
