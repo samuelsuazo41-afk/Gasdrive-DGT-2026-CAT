@@ -83,6 +83,9 @@ const EMOJI_BOTIGA = [
   {id:'e6',emoji:'⚡',nom:'Llamp',preu:700}
 ];
 
+let tipsData = [];
+let currentTip = 0;
+
 const TIPS = [
   {emoji:'🚗', txt:'Regla dels 2 segons: manté distància amb el cotxe del davant'},
   {emoji:'👀', txt:'Mira 12 segons endavant, no només el cotxe de davant'},
