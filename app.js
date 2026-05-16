@@ -54,12 +54,17 @@ const SITUACIONS = {
 };
 
 const COTXES = [
-  {id:'c1',nom:'SEAT Ibiza',emoji:'🚗',preu:0,hp:90,unlock:0},
-  {id:'c2',nom:'VW Golf GTI',emoji:'🏎️',preu:500,hp:245,unlock:500},
-  {id:'c3',nom:'BMW M3',emoji:'🚙',preu:1500,hp:510,unlock:1500},
-  {id:'c4',nom:'Tesla Model S',emoji:'⚡',preu:3000,hp:670,unlock:3000},
-  {id:'c5',nom:'Porsche 911',emoji:'🏁',preu:5000,hp:450,unlock:5000},
-  {id:'c6',nom:'Bugatti Chiron',emoji:'🚗💨',preu:10000,hp:1500,unlock:10000}
+  {id:'c1',nom:'SEAT Ibiza',emoji:'🚗',preu:200,cv:90},
+  {id:'c2',nom:'VW Golf GTI',emoji:'🚗',preu:800,cv:220},
+  {id:'c3',nom:'BMW M3',emoji:'🚗',preu:1500,cv:420},
+  {id:'c4',nom:'Tesla Model S',emoji:'⚡',preu:2000,cv:670},
+  {id:'c5',nom:'Porsche 911',emoji:'🚗',preu:2500,cv:450},
+  {id:'c6',nom:'Bugatti Chiron',emoji:'🚗',preu:5000,cv:1500},
+  {id:'c7',nom:'Yamaha R1',emoji:'🏍️',preu:2200,cv:200},
+  {id:'c8',nom:'Ducati Panigale',emoji:'🏍️',preu:2800,cv:220},
+  {id:'c9',nom:'Audi RS6',emoji:'🚗',preu:3200,cv:600},
+  {id:'c10',nom:'Nissan GTR',emoji:'🚗',preu:3500,cv:565},
+  {id:'c11',nom:'McLaren 720S',emoji:'🚗',preu:4200,cv:720}
 ];
 
 const ACCESSORIS = [
@@ -79,12 +84,90 @@ const EMOJI_BOTIGA = [
 ];
 
 const TIPS = [
-  {emoji:'🧠',txt:'Regla dels 2 segons: manté distància amb el de davant'},
-  {emoji:'👀',txt:'Mira 12 segons endavant, no només el cotxe de davant'},
-  {emoji:'🌧️',txt:'Pluja: augmenta distància x2 i redueix velocitat 20%'},
-  {emoji:'🌙',txt:'De nit redueix velocitat un 20%. El camp visual es redueix'},
-  {emoji:'🚗',txt:'Avança només quan vegis 200m lliures en sentit contrari'}
-];
+  {emoji:'🚗', txt:'Regla dels 2 segons: manté distància amb el cotxe del davant'},
+  {emoji:'👀', txt:'Mira 12 segons endavant, no només el cotxe de davant'},
+  {emoji:'🌧️', txt:'Pluja: augmenta distància x2 i redueix velocitat'},
+  {emoji:'🌙', txt:'De nit redueix velocitat un 10-15%'},
+  {emoji:'🚙', txt:'Avança només quan vegis 200m lliures'},
+  
+  {emoji:'🛑', txt:'STOP vol dir aturada total, no frenada'},
+  {emoji:'⚠️', txt:'Cediu el pas als vianants al pas de zebra'},
+  {emoji:'💡', txt:'Fes servir els intermitents 3 segons abans de girar'},
+  {emoji:'🛣️', txt:'Velocitat màxima en autovia: 120 km/h'},
+  {emoji:'🏙️', txt:'Velocitat màxima en ciutat: 50 km/h'},
+  
+  {emoji:'🚸', txt:'Al voltant d’escoles baixa a 30 km/h'},
+  {emoji:'🍺', txt:'Alcohol i conducció no són compatibles. 0,0 és segur'},
+  {emoji:'😴', txt:'Si tens son, para i descansa. 15 min canvien tot'},
+  {emoji:'📱', txt:'No facis servir el mòbil mentre condueixes'},
+  {emoji:'🪞', txt:'Regula els miralls abans de sortir'},
+  
+  {emoji:'🎒', txt:'Posa el cinturó encara que siguin 2 min'},
+  {emoji:'👶', txt:'Nens <135cm han d’anar amb SRI adequat'},
+  {emoji:'🐶', txt:'Animals ben subjectes al cotxe'},
+  {emoji:'🧳', txt:'Càrrega ben repartida i lligada'},
+  {emoji:'🚲', txt:'Deixa 1,5m al avançar ciclistes'},
+  
+  {emoji:'❄️', txt:'Amb gel: arrenca en 2a marxa i suau amb l’accelerador'},
+  {emoji:'🌫️', txt:'Boira: llums curtes + antiboira davant'},
+  {emoji:'🌪️', txt:'Vent fort: agafa el volant amb fermesa'},
+  {emoji:'⛽', txt:'No apuris la reserva, pots quedar-te tirat'},
+  {emoji:'🔧', txt:'Revisa oli, aigua i pressió cada mes'},
+  
+  {emoji:'🚨', txt:'Si veus una ambulància, facilita el pas'},
+  {emoji:'🔄', txt:'A les rotondes, el que hi és dins té preferència'},
+  {emoji:'↩️', txt:'Canvi de sentit prohibit on no hi hagi visibilitat'},
+  {emoji:'🚫', txt:'No estacionis a guals ni passos de vianants'},
+  {emoji:'🅿️', txt:'Estaciona en pendent amb marxa posada i fre de mà'},
+  
+  {emoji:'💨', txt:'Adelanta ràpid i torna al carril dret'},
+  {emoji:'🚚', txt:'Camions necessiten més espai per frenar'},
+  {emoji:'🚌', txt:'Autobusos sortint de parada tenen prioritat'},
+  {emoji:'🚦', txt:'Ambre no és accelerar, és preparar-te per parar'},
+  {emoji:'🚶', txt:'Vianants distrets? Redueix i toca clàxon suau'},
+  
+  {emoji:'🛠️', txt:'Si s’encén un pilot, consulta el manual'},
+  {emoji:'🧊', txt:'Parabrisas net millora la visió un 40%'},
+  {emoji:'🌡️', txt:'Amb calor, hidrata’t. La fatiga mata'},
+  {emoji:'🎵', txt:'Música molt alta et distreu. Volum moderat'},
+  {emoji:'🧤', txt:'Mans al volant a les 9 i 3, no a dalt'},
+  
+  {emoji:'🔁', txt:'Canvia de carril només si és segur'},
+  {emoji:'⏱️', txt:'Millor arribar 5 min tard que no arribar'},
+  {emoji:'🚧', txt:'Obres: respecta senyals provisionals'},
+  {emoji:'🛣️', txt:'En autopista, mantén el carril dret si vas lent'},
+  {emoji:'🚜', txt:'Vehicles lents: paciència i adelanta segur'},
+  
+  {emoji:'🔦', txt:'Si et quedis avariat, posa triangles i armilla'},
+  {emoji:'📞', txt:'112 per emergències. Guarda’l al mòbil'},
+  {emoji:'🧯', txt:'Un extintor al cotxe mai sobra'},
+  {emoji:'🧊', txt:'No aboquis aigua calenta al parabrisas gelat'},
+  {emoji:'🚗', txt:'Revisa frens si sents sorolls rars'},
+  
+  {emoji:'👟', txt:'Sabates còmodes per conduir. No xancletes'},
+  {emoji:'🧢', txt:'Sol? Ulleres de sol eviten enlluernaments'},
+  {emoji:'🌤️', txt:'Sol baix: para atenció a l’enlluernament'},
+  {emoji:'🚪', txt:'Obre la porta amb la mà dreta per mirar enrere'},
+  {emoji:'🛣️', txt:'Carril bus només per bus, taxi i bici'},
+  
+  {emoji:'🚫', txt:'No facis marxa enrere a autopista'},
+  {emoji:'🔃', txt:'Canvia oli cada 15.000-20.000 km'},
+  {emoji:'🛞', txt:'Pressió de pneumàtics: mira’l en fred'},
+  {emoji:'🧽', txt:'Parabrisas brut cansa la vista'},
+  {emoji:'🚗', txt:'Mantén 2m amb motos en ciutat'},
+  
+  {emoji:'🛑', txt:'Prioritat a la dreta si no hi ha senyal'},
+  {emoji:'🚥', txt:'Semàfor intermitent ambre = precaució'},
+  {emoji:'🚶‍♂️', txt:'Zebra sense semàfor: para sempre'},
+  {emoji:'🐾', txt:'Animals salvatges: frena, no esquivis bruscament'},
+  {emoji:'🌉', txt:'Ponts i túnels: vigila el vent i la visibilitat'},
+  
+  {emoji:'🚗', txt:'Si plou fort, para en zona segura'},
+  {emoji:'🧠', txt:'Conducció defensiva salva vides'},
+  {emoji:'⏳', txt:'No tinguis pressa. La DGT no perdona'},
+  {emoji:'🛣️', txt:'Carril d’acceleració: adapta’t a la velocitat'},
+  {emoji:'🚘', txt:'Cotxe nou? Coneix els controls abans de sortir'}
+]; 
 
 let estat = {
   coins: parseInt(localStorage.getItem('gd_coins')) || 0,
