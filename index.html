@@ -161,11 +161,49 @@ body {
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
+    
     await OneSignal.init({
-      appId: "3beb3078-e0f1-4629-af17-fde833b9f716",
+      appId: "TU_APP_ID_AQUI",
+      promptOptions: {
+        slidedown: {
+          prompts: [
+            {
+              type: "push",
+              autoPrompt: true,
+              text: {
+                actionMessage: "Rep les novetats, actualitzacions i ofertes de GasDrive CAT",
+                acceptButton: "Activar",
+                cancelButton: "Ara no"
+              },
+              delay: { pageViews: 1, timeDelay: 5 }
+            }
+          ]
+        }
+      }
     });
+
+    // Siempre pon idioma
     await OneSignal.User.addTag("idioma", "ca");
-    await OneSignal.User.addTag("ciutat", "girona");
+
+    // Detecta provincia y ciudad automáticamente
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        try {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          
+          // API gratis, no necesita key
+          const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=ca`);
+          const data = await response.json();
+          
+          const provincia = data.principalSubdivision.toLowerCase();
+          const ciutat = data.city ? data.city.toLowerCase() : data.locality.toLowerCase();
+          
+          await OneSignal.User.addTag("provincia", provincia);
+          await OneSignal.User.addTag("ciutat", ciutat);
+          
+          console.log("Ubicació detectada:", provincia, ciutat);
+       
   });
 </script>
 </head>
