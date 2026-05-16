@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gasdrive-v8.0-cat';
+const CACHE_NAME = 'gasdrive-v8.1-cat';
 const urlsToCache = [
   '/Gasdrive-DGT-2026-CAT/',
   '/Gasdrive-DGT-2026-CAT/index.html',
